@@ -13,15 +13,6 @@ router.post("/updateprices", async (req, res) => {
   }
 });
 
-router.get("/products", async (req, res) => {
-  try {
-    const products = await db.showProducts();
-    res.json(products);
-  } catch (error) {
-    res.status(500);
-  }
-});
-
 router.post("/validate", async (req, res) => {
   try {
     const products = req.body.products;

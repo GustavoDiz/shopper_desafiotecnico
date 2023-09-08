@@ -1,25 +1,17 @@
+require('dotenv').config();
+
+const dbConfig = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
+};
+
 async function connect() {
   const mysql = require("mysql2/promise");
-  const con = await mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "ufDolyeYrnGT366",
-    database: "productsdb",
-  });
-
+  const con = await mysql.createConnection(dbConfig);
   con.connect();
   return con;
-}
-
-//APAGAR DEPOIS ISSO É APENAS PARA UM TESTE
-async function showProducts() {
-  try {
-    const conn = await connect();
-    const result = await conn.query("SELECT * FROM products;");
-    return result[0];
-  } catch (error) {
-    throw error;
-  }
 }
 
 //ATUALIZAR VALOR DO PRODUTO
@@ -122,4 +114,4 @@ async function validateUpdate(products) {
   }
 }
 
-module.exports = { showProducts, updatePrices, validateUpdate };
+module.exports = { updatePrices, validateUpdate };

@@ -19,15 +19,6 @@ export const updateProducts = async (products) => {
     }
   };
 
-export const showProducts = async() =>{
-  try {
-    const response = await axios.get(`${API_URL}/products`)
-    console.log(response.data);
-  } catch (error) {
-    throw error;
-  }
-};
-
 export const validateCSV = async(products) => {
   try {
     const response = await axios.post(`${API_URL}/validate`,{
