@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { showProducts, updateProducts, validateCSV } from "../services/api";
+import { updateProducts, validateCSV } from "../services/api";
 import Papa from "papaparse";
 import "../style/style.css";
 import { useEffect } from "react";
@@ -84,7 +84,6 @@ export default function Uploader() {
     products
       .then((result) => {
         setValidateProducts(result.data);
-        console.log(validateProducts);
       })
       .catch((e) => {
         console.log(e);

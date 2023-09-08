@@ -7,7 +7,6 @@ export const updateProducts = async (products) => {
       const response = await axios.post(`${API_URL}/updateprices`,{
         products : products
       });
-      console.log(response.data);
       if (response.data.sucess) {
         console.log('Preços atualizados com sucesso!');
       } else {
@@ -24,7 +23,6 @@ export const validateCSV = async(products) => {
     const response = await axios.post(`${API_URL}/validate`,{
       products : products
     });
-    console.log(response);
     return response;
   } catch (error) {
     console.error('Erro ao buscar produtos:', error);
