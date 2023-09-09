@@ -67,6 +67,7 @@ export default function Uploader() {
         </>
       );
     } else {
+      setUpdateValid(false);
       return <p>Ainda não nenhuma verifcação foi solicitada</p>;
     }
   }
